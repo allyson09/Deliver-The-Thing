@@ -1,0 +1,65 @@
+﻿<script>
+  $(document).ready(function(){
+    $(window).on('beforeunload', function()
+    {
+        return '';
+    });
+    $('.save').click(function(e) {
+        var element = $(this);
+        var urlString = "SaveRate";
+        var btnChange = "Remove";
+        if(element.html() === "Remove")
+        {
+            urlString = "RemoveRate";
+            btnChange = "Save Rate";
+        }
+        var data = {
+            rateId: $(this).val(),
+            page: "results"
+        }
+        $.ajax({
+            data: data,
+            type: 'POST',
+            url: urlString,
+            success: function(response) {
+                element.html(btnChange);
+            }
+        })
+        return false;
+    });
+  });
+</script>
+<main id="results">
+    <header id="results">
+        <h3>Here are your rates!!!</h3>
+        <button class="btn btn-primary"><a href="/Rates" >New Shipment Inquery</a></button>
+    </header>
+    <section class="tableScroll">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Service</th>
+                <th scope="col">Delivery Time</th>
+                <th scope="col">Shipping Price</th>
+                <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var Rate in ViewBag.Rates)
+            {
+                <tr>
+                <td scope="row">@Rate.ServiceType</td>
+                @if (@Rate.DeliveryDays > 1)
+                {
+                    <td>@Rate.DeliveryDays Days</td>
+                } else {
+                    <td>@Rate.DeliveryDays Day</td>
+                }
+                <td>$@Rate.ShippingAmount.Amount</td>
+                <td><button class="save" value="@($"{Rate.RateId}")">Save Rate</button></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </section>
+</main>

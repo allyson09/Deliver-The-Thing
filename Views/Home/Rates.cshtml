@@ -1,0 +1,138 @@
+@model DeliverTheThing.Models.Request
+
+<form asp-controller="Home" asp-action="CalculateRates" method="post">
+  <main id="rates">
+    <section id="addresses">
+      <section id="shipTo">
+        <h2>Ship To</h2>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.name"></span>
+            <label asp-for="shipment.ship_to.name">Full Name:</label>
+            <input id="to_name" class="form-control" asp-for="shipment.ship_to.name">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.company_name"></span>
+            <label asp-for="shipment.ship_to.company_name">Company Name:</label>
+            <input id="to_company" class="form-control" asp-for="shipment.ship_to.company_name">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.address_line1"></span>
+            <label asp-for="shipment.ship_to.address_line1">Address Line 1:</label>
+            <input id="to_address1" class="form-control" asp-for="shipment.ship_to.address_line1">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.address_line2"></span>
+            <label asp-for="shipment.ship_to.address_line2">Address Line 2:</label>
+            <input id="to_address2" class="form-control" asp-for="shipment.ship_to.address_line2">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.city_locality"></span>
+            <label asp-for="shipment.ship_to.city_locality">City:</label>
+            <input id="to_city" class="form-control" asp-for="shipment.ship_to.city_locality">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.state_province"></span>
+            <label asp-for="shipment.ship_to.state_province">State:</label>
+            <input id="to_state" class="form-control" asp-for="shipment.ship_to.state_province">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.postal_code"></span>
+            <label asp-for="shipment.ship_to.postal_code">Zip Code:</label>
+            <input id="to_zip" class="form-control" asp-for="shipment.ship_to.postal_code">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.country_code"></span>
+            <label asp-for="shipment.ship_to.country_code">Country:</label>
+            <input id="to_country" class="form-control" asp-for="shipment.ship_to.country_code" placeholder="US for United States">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_to.phone"></span>
+            <label asp-for="shipment.ship_to.phone">Phone Number:</label>
+            <input id="to_phone" class="form-control" asp-for="shipment.ship_to.phone" placeholder="###-###-####">
+          </div>
+      </section>
+      <section id="shipFrom">
+        <h2>Ship From</h2>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.name"></span>
+            <label asp-for="shipment.ship_from.name">Full Name:</label>
+            <input id="from_name" class="form-control" asp-for="shipment.ship_from.name">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.company_name"></span>
+            <label asp-for="shipment.ship_from.company_name">Company Name:</label>
+            <input id="from_company" class="form-control" asp-for="shipment.ship_from.company_name">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.address_line1"></span>
+            <label asp-for="shipment.ship_from.address_line1">Address Line 1:</label>
+            <input id="from_address1" class="form-control" asp-for="shipment.ship_from.address_line1">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.address_line2"></span>
+            <label asp-for="shipment.ship_from.address_line2">Address Line 2:</label>
+            <input id="from_address2" class="form-control" asp-for="shipment.ship_from.address_line2">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.city_locality"></span>
+            <label asp-for="shipment.ship_from.city_locality">City:</label>
+            <input id="from_city" class="form-control" asp-for="shipment.ship_from.city_locality">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.state_province"></span>
+            <label asp-for="shipment.ship_from.state_province">State:</label>
+            <input id="from_state" class="form-control" asp-for="shipment.ship_from.state_province">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.postal_code"></span>
+            <label asp-for="shipment.ship_from.postal_code">Zip Code:</label>
+            <input id="from_zip" class="form-control" asp-for="shipment.ship_from.postal_code">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.country_code"></span>
+            <label asp-for="shipment.ship_from.country_code">Country:</label>
+            <input id="from_country" class="form-control" asp-for="shipment.ship_from.country_code" placeholder="US for United States">
+          </div>
+          <div class="form-group">
+            <span asp-validation-for="shipment.ship_from.phone"></span>
+            <label asp-for="shipment.ship_from.phone">Phone Number:</label>
+            <input id="from_phone" class="form-control" asp-for="shipment.ship_from.phone" placeholder="###-###-####">
+          </div>
+      </section>
+    </section>
+    <section id="package">
+      <h2>Package</h2>
+      <h3>Weight</h3>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.weight.value"></span>
+        <label asp-for="shipment.package.weight.value">Weight:</label>
+        <input id="weight" class="form-control" asp-for="shipment.package.weight.value" placeholder="lbs">
+      </div>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.weight.unit"></span>
+        <input type="hidden" value="Pound" id="weightUnit" class="form-control" asp-for="shipment.package.weight.unit">
+      </div>
+      <h3>Dimensions</h3>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.dimensions.length"></span>
+        <label asp-for="shipment.package.dimensions.length">Length:</label>
+        <input id="length" class="form-control" asp-for="shipment.package.dimensions.length" placeholder="inches">
+      </div>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.dimensions.width"></span>
+        <label asp-for="shipment.package.dimensions.width">Width:</label>
+        <input id="width" class="form-control" asp-for="shipment.package.dimensions.width" placeholder="inches">
+      </div>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.dimensions.height"></span>
+        <label asp-for="shipment.package.dimensions.height">Height:</label>
+        <input id="height" class="form-control" asp-for="shipment.package.dimensions.height" placeholder="inches">
+      </div>
+      <div class="form-group">
+        <span asp-validation-for="shipment.package.dimensions.unit"></span>
+        <input id="dimensionsUnit" type="hidden" value="Inch" class="form-control" asp-for="shipment.package.dimensions.unit">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </section>
+  </main>
+</form>

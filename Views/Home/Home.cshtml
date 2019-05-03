@@ -1,0 +1,71 @@
+<script>
+  $(document).ready(function(){
+    $('.remove').click(function() {
+        console.log('in click')
+        var data = {
+            rateId: $(this).val(),
+            page: "home"
+        }
+        $.ajax({
+            data: data,
+            type: 'POST',
+            url: 'Rates/RemoveRate',
+            success: function(response) {
+                console.log('yay!!!')
+                location.reload();
+            }
+        })
+        return false;
+    });
+    $('.print').click(function(e) {
+        var element = $(this);
+        var data = {
+            rateId: $(this).val()
+        }
+        $.ajax({
+            data: data,
+            type: 'POST',
+            url: 'Label',
+            success: function(response) {
+                element.html("Removed");
+                element.removeClass("print");
+            }
+        })
+        return false;
+    });
+  });
+</script>
+<header id="home">
+<h1>Here are your saved rates @ViewBag.User[0]["firstName"]!</h1>
+<button class="btn btn-primary"><a href="/Rates" >New Shipment Inquery</a></button>
+</header>
+<section class="tableScroll">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Service</th>
+            <th scope="col">Delivery Time</th>
+            <th scope="col">Shipping Price</th>
+            <th scope="col">View Shipping Label</th>
+            <th scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var Rate in ViewBag.Rates)
+        {
+            <tr>
+            <td scope="row">@Rate["serviceType"]</td>
+            @if (@Rate["deliveryDays"] > 1)
+            {
+                <td>@Rate["deliveryDays"] Days</td>
+            } else {
+                <td>@Rate["deliveryDays"] Day</td>
+            }
+            <td>$@Rate["shippingAmount"]</td>
+            <td><button class="print btn btn-primary" value="@($"{Rate["rateId"]}")">Print</button></td>
+            <td><button class="remove btn btn-primary" value="@($"{Rate["rateId"]}")">Delete</button></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,136 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/* Scroll for tables */
+section.tableScroll {
+    display: block;
+    max-height: 35em;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+/* NavBar */
+nav#navbar.navbar.navbar-fixed-top {
+    height: 5em;
+    background-color: #7aaf00;
+}
+a.navbar-brand {
+    color: white;
+    padding-top: .7em;
+    font-size: 2.3em;
+}
+
+/* Index */
+main#index {
+    margin-top: 2em;
+}
+#logregSection {
+    display: flex;
+    justify-content: space-around;
+}
+.logreg {
+    width: 25em;
+}
+
+/* Home */
+.nav > li > a {
+    color: white;
+    font-size: 1.2em;
+    padding-top: 1.6em;
+}
+.nav > li > a:hover {
+    background-color: #7aaf00;
+}
+header#home {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 4em;
+    margin-bottom: 3em;
+}
+header#home > button {
+    height: 3em;
+    margin-top: 1em;
+}
+header#home > button > a {
+    color: white;
+}
+header#home > button > a:hover {
+    text-decoration: none;
+}
+
+/* Rates */
+main#rates {
+    margin-top: 2em;
+}
+section#addresses {
+    display: flex;
+    justify-content: space-between;
+}
+section#shipTo > .form-group {
+    width: 30em;
+}
+section#shipFrom > .form-group {
+    width: 30em;
+}
+section#package > .form-group {
+    width: 30em;
+}
+
+/* Rate  Results*/
+main#results {
+    margin-top: 2em;
+}
+header#results {
+    display: flex;
+    justify-content: space-between;
+}
+header#results > button {
+    height: 3em;
+    margin-top: 1em;
+}
+header#results > button > a {
+    color: white;
+}
+header#results > button > a:hover {
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+}

@@ -1,0 +1,40 @@
+﻿@model DeliverTheThing.Models.LogRegModels
+<main id="index">
+    <section id="logregSection">
+        <section id="loginSection">
+            <h2>Login</h2>
+            <span>@TempData["ValError"]</span>
+            <form class="logreg" asp-controller="Home" asp-action="Login" method="post">
+                <span asp-validation-for="Log.Email"></span>
+                <label asp-for="Log.Email">Email: </label>
+                <input class="form-control" asp-for="Log.Email"><br>
+                <span asp-validation-for="Log.Password"></span>
+                <label asp-for="Log.Password">Password: </label>
+                <input class="form-control" asp-for="Log.Password"><br>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </section>
+        <section id="regSection">
+            <h2>Register</h2>
+            <span>@TempData["ValError"]</span>
+            <form class="logreg" asp-controller="Home" asp-action="Register" method="post">
+                <span asp-validation-for="Reg.Firstname"></span>
+                <label asp-for="Reg.Firstname">First Name: </label>
+                <input class="form-control" asp-for="Reg.Firstname"><br>
+                <span asp-validation-for="Reg.Lastname"></span>
+                <label asp-for="Reg.Lastname">Last Name: </label>
+                <input class="form-control" asp-for="Reg.Lastname"><br>
+                <span asp-validation-for="Reg.Email"></span>
+                <label asp-for="Reg.Email">Email: </label>
+                <input class="form-control" asp-for="Reg.Email"><br>
+                <span asp-validation-for="Reg.Password"></span>
+                <label asp-for="Reg.Password">Password: </label>
+                <input class="form-control" asp-for="Reg.Password"><br>
+                <span asp-validation-for="Reg.ConPassword"></span>
+                <label asp-for="Reg.ConPassword">Confirm Password: </label>
+                <input class="form-control" asp-for="Reg.ConPassword"><br>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </section>
+    </section>
+</main>

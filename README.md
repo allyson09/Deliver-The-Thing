@@ -1,0 +1,2 @@
+# Deliver-The-Thing
+A small shipping application I voluntarily made for an interview in 2 days. My goal was to test how much I could learn about a new industry in a short amount of time. These 2 days also included research on shipping terms, shipping functionality and how to implement them with no guidance. Thankfully, my employer was surprised that I had created this for the interview and was pleased with the results. I did not create functionality for printing labels because that would have required making an actual shipment which I did not want to do.
